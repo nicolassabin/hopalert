@@ -1,0 +1,647 @@
+    a, a:visited {
+        /* Les liens "au repos" et déjà visités antérieurement */
+        color: #ff6500; /* couleur blanche */
+    }
+    a:hover, a:focus, a:active {
+        /* Les liens au survol, au focus, et actifs : on leur donne la couleur rouge pour l'exemple */
+        color: #ff6500;
+    }
+
+    html {
+       margin: 0px;
+       height: 100%;
+       width: 100%;
+    }
+
+    body
+    {
+      min-height: 100%;
+      margin: 10px 0 ;
+      padding: 0 ;
+      text-align: center ;
+      font: 1em arial sans-serif ;
+      background: white ;
+    }
+    
+    div#conteneur
+    {
+      max-width: 65%;
+      margin: 0 auto ;
+      text-align: left ;
+      border: 2px solid #ff6500 ;
+      background: white ;
+    }
+    
+    h1#header
+    {
+      width: 100%;
+      height: 250px ;
+      margin: 0 ;
+      background: url(alert.jpeg) no-repeat center top ;
+    }
+    
+    ul#menu
+    {
+      height: 25px ;
+      margin-top: 0px ;
+      padding: 0px ;
+      width: 100%;
+      background: white; 
+      list-style-type: none ;
+    }
+        
+    ul#menu li
+    {
+      float: left ;
+      text-align: center ;
+      background: white; 
+    }
+    
+    ul#menu li a
+    {
+      min-width: 100px ;
+      line-height: 30px ;
+      font-size: 1.2em ;
+      font-weight: bold ;
+      letter-spacing: 2px ;
+      color: white ;
+      display: inline-block ;
+      text-decoration: none ;
+      border-right: 1px solid #ccc ;
+      border-left: 1px solid #ccc ;
+      padding-left: 10px ;
+      padding-right: 10px ;
+      background: #ff6500;
+      
+    }
+
+    
+    ul#menu a:hover
+    {
+      background: #ff6500;
+      color: white ; 
+    }
+
+    ul#menu li al:hover
+    {
+      background: #ff6500;
+      color: white ; 
+    }
+
+    ul#menu li a.active
+    {
+      background: white;
+      color: #ff6500 ; 
+    }
+    
+    ul#menu li a.active:hover
+    {
+      background: white;
+      color: #ff6500 ; 
+    }
+
+    
+    div#contenu
+    {
+      padding: 0 3% 0 10% ;
+    }
+    
+    div#contenu h2
+    {
+      height: 60px ;
+      padding-top: 15px;
+      padding-left: 55px ;
+      line-height: 55px ;
+      font-size: 1.4em ;
+      text-align:  left ;
+      background: url(little_logo.jpeg) no-repeat left bottom ;
+      color: #ff6500 ;
+      border-bottom: 1px solid #ff6500 ;
+    }
+
+    div#contenu h4
+    {
+      height: 60px ;
+      padding-top: 15px;
+      padding-left: 55px ;
+      line-height: 55px ;
+      font-size: 1.4em ;
+      text-align:  left ;
+      background: url(little_logo.jpeg) no-repeat left bottom ;
+      color: #ff6500 ;
+      border-bottom: 1px solid #ff6500 ;
+    }
+    
+    div#contenu h3
+    {
+      margin-left: 15px ;
+      padding-left: 5px ;
+      border-bottom: 1px solid #ff6500 ;
+      border-left: 3px solid #ff6500 ;
+      color: #ff6500 ;
+      font-size: 1.0em ;
+    }
+    
+    div#contenu p
+    {
+      text-align: justify ;
+      text-indent: 2em ;
+      line-height: 1.2em ;
+    }
+    
+    div#contenu a
+    {
+      color: #8a0 ;
+    }
+    
+    div#contenu a:hover
+    {
+      color: #9b2 ;
+    }
+    
+    p#footer, p#copyright-info
+    {
+      margin: 0 ;
+      padding-right: 10px ;
+      line-height: 12px ;
+      text-align: justify;
+      text-justify: inter-word;
+      color: #CCC ;
+      font-size: 0.8em ;
+      padding-left: 10px ;
+      
+    }
+    
+    pre
+    {
+      overflow: auto ;
+      background: #dea ;
+      border: 2px solid #ff6500 ;
+      padding: 5px 0 0 5px ;
+      font-size: 1.2em ;
+    }
+    
+    
+    pre span
+    {
+      color: #ff6500 ;
+    }
+    
+    pre span.comment
+    {
+      color: #b30000 ;
+    }
+
+    form 
+    {
+      /* Pour le centrer dans la page */
+      margin: 0 auto;
+      
+      /* Pour voir les limites du formulaire */
+      font: 1em arial sans-serif ;
+    }
+
+  
+    label {
+      /* Afin de s'assurer que toutes les étiquettes aient la même dimension et soient alignées correctement */
+      display: inline-block;
+      width: 80%;
+      text-align: right;
+      vertical-align: top;
+    }
+
+    input, select, textarea {
+      /* Pour aligner correctement les champs multilignes et leurs étiquettes */
+      vertical-align: top;
+
+      /* requis pour composer de manière appropriée les éléments
+      de formulaire sur les navigateurs fondés sur WebKit */
+      -webkit-appearance: none;
+      float: right;
+      /* Afin de s'assurer que tous les champs textuels utilisent la même police
+         Par défaut, textarea utilise une police à espacement constant */
+      font: 1em arial sans-serif ;
+
+      /* Pour donner la même dimension à tous les champs textuels */
+      width: 100%;
+      line-height: 30px ;
+
+      /* Pour harmoniser l'apparence des bordures des champs textuels */
+      border-radius: 5px;
+      border: 1px solid #ff6500;
+    }
+
+    input:focus, textarea:focus {
+      /* Afin de réhausser les éléments actifs */
+      border-color: black;
+    }
+
+    button {
+        /* Cette marge représente approximativement le même espace
+           que celui entre les étiquettes et les champs textuels */
+        /* Pour positionner les boutons de la même manière que les champs textuels */
+        float: right;
+        width: 50%;
+        text-align: center;
+        height: 3em;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #ff6500;
+        background: #ff6500; 
+        font: 1em arial sans-serif ;
+        color:white;
+
+    }
+
+    .swal-button--confirm {
+        color:white;
+        background-color:#ff6500;
+        border-radius: 5px;
+        border: 1px solid #ff6500;
+        width:70px;
+        text-align:center;
+        padding: 5px;
+    }
+
+    .swal-button--cancel {
+        position:relative;
+        color:white;
+        background-color:#bbc;
+        border-radius: 3px;
+        width:70px;
+        text-align:center;
+        padding: 5px;
+    }
+
+    .swal-modal {
+        border:1px solid #ff6500;
+        background-color:white;
+        max-width:300px;
+    }
+
+    .swal-text {
+      padding: 17px;
+      display: block;
+      margin: 22px;
+      text-align: center;
+    }
+
+    .swal-title {
+      background: #ff6500;
+      margin: 0px;
+      margin-bottom: 28px;
+      color:white;
+      font-size: 14px;
+    }
+
+    /* unrelated styles */
+
+    #mContainer {
+        position:relative;
+        width:600px;
+        margin:auto;
+        padding:5px;
+        border-top:2px solid black;
+        border-bottom:2px solid black;
+        font: 1em arial sans-serif ;
+    }
+
+    h1,h2 {
+        margin:0;
+        font:bold 1.5em arial sans-serif ;
+        border-bottom:1px solid black;
+    }
+
+    code {
+        font-size:1.2em;
+        color:#069;
+    }
+
+    .vertical-menu {
+      width: 200px; /* Set a width if you like */
+    }
+
+    .vertical-menu a {
+        background-color: white; /* Grey background color */
+        color: white; /* Black text color */
+        display: block; /* Make the links appear below each other */
+        padding: 0; /* Add some padding */
+        text-decoration: none; /* Remove underline from links */
+    }
+
+    .vertical-menu a:hover {
+        color: black; /* Dark grey background on mouse-over */
+    }
+
+    .vertical-menu a.active {
+        background-color: white; /* Add a green color to the "active/current" link */
+        color: black;
+    }
+
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none; 
+      margin: 0; 
+    }
+
+    #loading{
+      position: fixed;
+      top: 50%;
+      left: 50%;
+    }
+
+    .column {
+      float: left;
+      width: 31%;
+      padding: 5px;
+    }
+    /* formuaire contact */
+    #form-responsive {
+      margin:0 auto;
+      width:100%;
+    }
+    .range-form {
+      width: 80%;
+    }
+    .semi-column, .columnf {
+      float: left;
+      padding: 0.35rem;
+      width:100%;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box
+    }
+    .clearfix:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .semi-column {
+      width:50%;
+    }
+
+    #myalertmsglabel{
+        margin: 75px;
+    }
+
+    #mycodeslabel{
+        margin: 75px;
+    }
+
+    #mainmenu{
+      display: block;
+    }
+    #menumobile{
+      display: none;
+    }
+    
+    /* RESPONSIVE */
+
+    @media screen and (max-width: 768px) {
+    
+      #mainmenu{
+        display: none;
+      }
+      #menumobile{
+        display: block;
+      }
+      /* The side navigation menu */
+      .sidenav {
+          height: 100%; /* 100% Full-height */
+          margin: 10px 0 ;
+          width: 0; /* 0 width - change this with JavaScript */
+          position: fixed; /* Stay in place */
+          z-index: 1; /* Stay on top */
+          top: 0;
+          left: 0;
+          background-color: #ff6500; /* Black*/
+          overflow-x: hidden; /* Disable horizontal scroll */
+          padding-top: 60px; /* Place content 60px from the top */
+          transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+      }
+       
+      /* The navigation menu links */
+      .sidenav a {
+          padding: 8px 8px 8px 32px;
+          text-decoration: none;
+          font-size: 1.2em ;
+          color: white;
+          display: block;
+          transition: 0.3s
+      }
+
+      .sidenav a.active
+      {
+        background: white;
+        color: #ff6500 ; 
+      }
+      
+      .sidenav a.active:hover
+      {
+        background: white;
+        color: #ff6500 ; 
+      }
+       
+      /* When you mouse over the navigation links, change their color */
+      .sidenav a:hover, .offcanvas a:focus{
+          color: black;
+      }
+       
+      /* Position and style the close button (top right corner) */
+      .sidenav .closebtn {
+          position: absolute;
+          top: 0;
+          right: 25px;
+          font-size: 36px;
+          margin-left: 50px;
+      }
+       
+      /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+      #conteneur {
+          transition: margin-left .5s;
+          padding: 10px;
+          overflow:hidden;
+          
+      }
+      
+      body {
+        max-width: 100%;
+      }
+       
+      /* Add a black background color to the top navigation */
+      .topnav {
+          background-color: white;
+          overflow: hidden;
+      }
+       
+      /* Style the links inside the navigation bar */
+      .topnav a {
+          float: left;
+          display: block;
+          font-size: 1.2em ;
+          font-weight: bold ;
+          letter-spacing: 2px ;
+          color: #ff6500;
+          margin-left: -15px;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          
+      }
+       
+      /* Change the color of links on hover */
+      .topnav a:hover {
+          background: white;
+          color: #ff6500 ; 
+      }
+       
+      /* Add a color to the active/current link */
+      .topnav a.active {
+          background: white;
+          color: #ff6500 ; 
+      }
+       
+      /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+      @media screen and (max-height: 450px) {
+          .sidenav {padding-top: 15px;}
+          .sidenav a {font-size: 18px;}
+      }
+       
+      a svg{
+        transition:all .5s ease;
+       
+        &:hover{
+          #transform:rotate(180deg);
+        }
+      }
+       
+      #ico{
+        display: none;
+      }
+       
+      .menu{
+        background: #000;
+        display: none;
+        padding: 5px;
+        width: 320px;
+        @include border-radius(5px);
+       
+        #transition: all 0.5s ease;
+       
+        a{
+          display: block;
+          color: #fff;
+          text-align: center;
+          padding: 10px 2px;
+          margin: 3px 0;
+          text-decoration: none;
+          background: #ff6500;
+       
+          &:nth-child(1){
+            margin-top: 0;
+            @include border-radius(3px 3px 0 0 );
+          }
+          &:nth-child(5){
+            margin-bottom: 0;
+            @include border-radius(0 0 3px 3px);
+          }
+       
+          &:hover{
+            background: #555;
+          }
+        }
+      }
+    
+      div#conteneur{
+          max-width: 95%;
+        }
+      
+      
+      #myalertmsglabel{
+        margin: 25px;
+      }
+
+      #mycodeslabel{
+        margin: 25px;
+      }
+
+    }
+
+    @media screen and (max-width: 767px) {
+      
+      
+
+      h1#header{
+        width: 100%;
+        height: 216px ;
+        margin: 0 ;
+        background: url(alertl.jpg) no-repeat center top ;
+      }
+
+      
+
+      div#contenu p {
+          font-size: 0.8em ;
+      }
+
+      div#h22 {
+        height: 200px ;
+      }
+
+
+      .range-form {
+        width: 100%;
+      }
+
+      .semi-column {
+          width:100%;
+          padding-left: 10px;
+      }
+
+      button {
+          width: 100%;
+      }
+
+      ul#menu li a
+      {
+        line-height: 25px ;
+        font-size: 1em ;
+        letter-spacing: 2px ;
+        padding-left: 2px ;
+        padding-right: 2px ;
+      }
+
+      div#contenu h2
+      {
+        font-size: 1.1em ;
+        background-size: 10%;
+      }
+
+      div#contenu h4
+      {
+        height: 40px ;
+        padding-left: 55px ;
+        line-height: 35px ;
+        font-size: 1.1em ;
+        background: url(little_logo.jpeg) no-repeat left bottom ;
+        background-size: 10%;
+      }
+
+
+      label {
+        /* Afin de s'assurer que toutes les étiquettes aient la même dimension et soient alignées correctement */
+        text-align: left;
+        font-size: 1em ;
+      }
+
+      div#mycodeslabel{
+        margin: 5px;
+      }
+
+      #myalertmsglabel{
+        display: none;
+      }
+
+
+    }

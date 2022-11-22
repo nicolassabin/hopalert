@@ -1,0 +1,32 @@
+{
+  "name": "hopalert",
+  "version": "1.3.0",
+  "description": "web site webcodex",
+  "main": "server.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "nodemailer": "^4.6.8",
+    "nodemon": "^1.18.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://nicolassabinlibertysurffr@helixteamhub.cloud/bitter-icecube-7014/projects/inerdev/repositories/git/hopalert"
+  },
+  "keywords": [
+    "webcodex",
+    "code",
+    "webbadge"
+  ],
+  "author": "nicolas sabin",
+  "license": "ISC"
+}

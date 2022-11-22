@@ -1,0 +1,256 @@
+<!-- Learn about this code on MDN: https://developer.mozilla.org/fr/docs/Web/Guide/HTML/Formulaires/Mon_premier_formulaire_HTML -->
+
+<!DOCTYPE html>
+<html ng-app="MyApp">
+  <head>
+    <title>WebCodex</title>
+    <link rel="stylesheet" type="text/css" href="/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+	   function displayCodeType(type)
+	   {
+	       	if (type == 1)
+	        {
+	            return "Porte-Clés"; 
+	        }
+	        else {
+	            return "Autres";
+	        }
+	   }
+	</script>
+	<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+  </head>
+  
+  <body>
+  <div id="conteneur">    
+    <div class="container" ng-controller="UserMessagesCodeCtrl">
+	<div id="loading" style="display:none;">
+  	  	<img id="img-loading" src="loading.gif" alt="loading"/>
+  	</div> 
+  	<h1 id="header"><a href="user.html" title="User"><span></span></a></h1>
+	<div id="mainmenu">
+      <ul id="menu" >
+          <li><a href="/index.html">Accueil</a></li>
+          <li><a href="/code.html">J'enregistre un code</a></li>
+          <li><a style="color:black" href="/message.html">J'ai trouvé un objet</a></li>
+          <li class="active"><a class="active" href="/user.html">Modifer mon espace</a></li>
+      </ul>
+    </div>
+
+    <div id="menumobile">
+      <div id="sideNavigation" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/index.html">Accueil</a>
+        <a href="/message.html">J'ai trouvé un objet</a>
+        <a href="/code.html">J'enregistre un code</a>
+        <a class="active" href="/user.html">Modifer mon espace</a>
+      </div>
+       
+      <nav class="topnav">
+        <a href="#" onclick="openNav()"><strong>Menu</strong></a>
+      </nav>
+    </div>
+    <div id="contenu">
+      <form>
+		  <div id="userLogin">
+			  <div>
+			  <p>Veuillez saisir vos identifiants:</p>
+			  </div>
+			  <div id="form-responsive" class="clearfix">
+					<div class="range-form">
+						<div class="semi-column">
+						 	<label for="email">* Votre email :</label>
+						</div>
+						<div class="semi-column">
+					 		<input placeholder="entrer ici votre adresse email" ng-init="user.Email=''" id="mail" type="email" class="mail" ng-model=user.Email ng-required="true" >
+							<span class="error" aria-live="polite"></span>
+						</div>
+					</div>
+					<div class="range-form">
+						<div class="columnf">
+					    	<a style="color: #ff6500" href="/user_registration.html"><label style="width: 100%">Pas encore de compte?<label></a>
+						</div>
+					</div>
+					<div class="range-form">
+						<div class="semi-column">
+						 	<label for="password">* Votre mot de passe :</label>
+						</div>
+						<div class="semi-column">
+					 		<input placeholder="entrer ici votre mot de passe" ng-init="user.Password=''" id="password" type="password" class="password" ng-model=user.Password ng-required="true" minLength="6" maxLength="8" oninvalid="this.setCustomValidity('Veuillez entrer un mot de passe')">
+						</div>
+					</div>
+					<div class="range-form">
+						<div class="columnf">
+					    	<a style="color: #ff6500" href="/user_forgot_password.html"><label style="width: 100%">Mot de passe oublié?<label></a>
+						</div>
+					</div>
+					<div class="range-form">
+						<div class="columnf">
+					    	<button id="actionButton" class="btn btn-primary" ng-click="loginUser()">S'identifier</button>
+						</div>
+					</div>
+			</div>
+		  </div>
+		  <div id="userSpace" style="display:none">
+		   	  <div>
+			    <label style="width:60%;text-align:left;" id="userSpaceLabel">Bienvenue dans votre espace</label>
+			  </div>
+			 <div>
+			 </div>
+			<div class="horizontal-menu">
+			  <a ng-click="editUserProfile(user._id)" style="color: #ff6500" href="#">Mes coordonnées</a>
+			  <a id="mycodeslabel" ng-click="editUserCodes(user._id)" style="color: #ff6500;" href="#">Mes codes Webcodex</a>
+			  <a id="myalertmsglabel" ng-click="editUserMessages(user._id)" style="color: #ff6500;" href="#">Mes signalements</a>
+			</div>
+			<div id="userProfile" style="display:none">
+		   	  <div>
+			    <label style="text-align: left;" id="userSpaceLabel">Mes coordonnées</label>
+			  </div>
+				<div id="formUpdateUser">
+			      <form>
+					<div id="form-responsive" class="clearfix">
+						<div class="range-form">
+							<div class="semi-column">
+							 	<label for="firstName">Nom :</label>
+						    </div>
+							<div class="semi-column">
+						 		<input class="form-control" ng-model=user.FirstName></input>
+							</div>
+						</div>
+						<div class="range-form">
+							<div class="semi-column">
+							 	<label for="lastName">Prénom :</label>
+						    </div>
+							<div class="semi-column">
+						 		<input class="form-control" ng-model=user.LastName></input>
+							</div>
+						</div>
+						<div class="range-form">
+							<div class="semi-column">
+							 	<label for="mobile">Mobile :</label>
+						    </div>
+							<div class="semi-column">
+						 		<input id="mobile" type="tel" class="form-control" ng-model=user.Mobile></input>
+							</div>
+						</div>
+						<div class="range-form">
+							<div class="semi-column">
+							 	<label for="Facebook">Votre facebook :</label>
+						    </div>
+							<div class="semi-column">
+						 		<input class="form-control" ng-model=user.Facebook></input>
+							</div>
+						</div>
+						<div class="range-form">
+							<div class="columnf">
+						    	<button id="actionButtonSave" class="btn btn-primary" ng-click="updateUser()">Enregistrer</button>
+							</div>
+						</div>
+						<div class="range-form">
+							<div class="columnf">
+						    	<button id="actionButtonReinitPsw" class="btn btn-primary" ng-click="reinitUserPsw()">Changer votre mot de passe</button>
+							</div>
+						</div>
+						<div class="range-form">
+							<div class="columnf">
+						    	<button id="actionButtonRemove" class="btn btn-primary" ng-click="removeUser()">Supprimer mon compte</button>
+							</div>
+						</div>
+					</div>
+				  </form>
+				</div>
+			   </div>
+			</div>
+			<div id="userCodes" style="display:none">
+		   	  <div>
+			  </div>
+			  <div>
+			    <label style="text-align:left;" id="userSpaceLabel">Mes codes Webcodex</label>
+			  </div>
+				<div id="userCodesDiv">
+					<div>
+			        </div>
+					<table id="codesTable" class="table">
+						<thead>
+							<tr>
+								<!-- <th>Date</th> -->
+								<th style="width:15%">Code</th>
+								<th style="width:15%">Type d'objet</th>
+								<th style="width:50%">Description</th>
+								<!-- <th>DateCreation</th> -->
+							</tr>
+						</thead>
+						<tbody>
+							 <!-- <tr>
+								<td><input style="width:60px" class="form-control" ng-model=code.Value></td>
+								<td><input style="width:60px" class="form-control" ng-model=code.Type></td>
+								<td><input style="width:500px" class="form-control" ng-model=code.Description></td>
+								<td><button style="width:100px;margin-left:0px" class="btn btn-info" ng-click="updateCode()">Update</button></td>
+							</tr> -->
+							<tr ng-repeat="code in codes">
+								<!-- <td>{{code.DateCreated}}</td> -->
+								<td>{{code.Value}}</td>
+								<td ng-if="code.Type == '1' ">Porte-clés</td>
+								<td ng-if="code.Type != '1' ">Autres</td>
+								<td style="width:50%">{{code.Description}}</td>
+								<td style="width:20%"><button style="width:100px" class="btn btn-danger" ng-click="removeCode(code._id)">Supprimer</button></td>
+								<!-- <td><button style="width:50px;margin-left:0px" class="btn btn-warning" ng-click="editCode(code._id)">Edit</button></td> -->
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div id="userMessages" style="display:none">
+		   	  <div>
+			  </div>
+			  <div>
+			    <label style="text-align:left;" id="userSpaceLabel">Mes signalements</label>
+			  </div>
+				<div id="userMessagesDiv">
+					<table id="messagesTable" class="table">
+					<thead>
+						<tr>
+							<!-- <th>CodeId</th> -->
+							<!-- <th>Date</th> -->
+							<th>De</th>
+							<!-- <th>Mobile</th> -->
+							<th>Objet</th>
+							<!--  <th>Texte</th>
+							<th>DateCreation</th>
+							<th>DateExpiration</th> -->
+						</tr>
+					</thead>
+					<tbody>
+						<!-- <tr>
+							<td><input class="form-control" ng-model=message.CodeId></td>
+							<td><input style="width:60px" class="form-control" ng-model=message.From></td>
+							<td><input style="width:60px" class="form-control" ng-model=message.FromMobile></td>
+							<td><input style="width:80px" class="form-control" ng-model=message.Subject></td>
+							<td><input class="form-control" ng-model=message.Text></td> 
+						</tr> -->
+						<tr ng-repeat="message in messages">
+							<!-- <td>{{message.CodeId}}</td> -->
+							<!-- <td>{{message.DateCreated}}</td> -->
+							<td>{{message.From}}</td>
+							<!-- <td>{{message.FromMobile}}</td> -->
+							<td>{{message.Subject}}</td>
+							<!-- <td>{{message.Text}}</td> -->
+							<td><button style="width:70px;" class="btn btn-warning" ng-click="viewMessage(message._id)">Détails</button></td>
+							<td><button style="width:100px;" class="btn btn-danger" ng-click="removeMessage(message._id)">Supprimer</button></td>
+						</tr>
+					</tbody>
+				</table>
+				</div>
+			</div>
+		  </div>
+	  </form>
+	</div>
+    <p id="footer">La société Iner-DEV s'engage  par conséquent, conformément aux articles 34 et 35 de la loi du 6 janvier 1978 modifiée relative à l’informatique, aux fichiers et aux libertés ainsi qu’aux articles 32 à 35 du règlement général sur la protection des données du 27 avril 2016, à prendre toutes précautions conformes aux usages et à l’état de l’art dans le cadre de ses attributions afin de protéger la confidentialité des informations aux- quelles elle a  accès, et en particulier d’empêcher qu’elles ne soient communiquées à des personnes non expressément autorisées à recevoir ces informations.</p>
+      <p style="line-height: 15px" id="copyright-info">&copy; 2018-2019 WebCodex <a style="font-size: 1.1em;padding-left: 0px;line-height: 12px" ; href="/personal_data.html">CGU Notre charte de données</a></p> 
+  </div>
+  	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>   
+	<script src="/controllers/controller.js"></script>
+ </body>
+</html>

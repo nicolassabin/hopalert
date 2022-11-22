@@ -1,0 +1,117 @@
+<!-- Learn about this code on MDN: https://developer.mozilla.org/fr/docs/Web/Guide/HTML/Formulaires/Mon_premier_formulaire_HTML -->
+
+<!DOCTYPE html>
+<html ng-app="MyApp">
+  <head>
+    <title>WebCodex</title>
+    <link rel="stylesheet" type="text/css" href="/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+  </head>
+  
+  <body>
+  	  <div id="conteneur">
+  	  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script> 
+  	  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  	  <div id="loading" style="display:none;">
+  	  	<img id="img-loading" src="loading.gif" alt="loading"/>
+  	  </div>    
+	  <div class="container">    
+	    <h1 id="header"><a href="code.html" title="Code"><span></span></a></h1>
+		<div id="mainmenu">
+	      <ul id="menu" >
+	          <li><a href="/index.html">Accueil</a></li>
+	          <li class="active"><a class="active" href="/code.html">J'enregistre un code</a></li>
+	          <li><a style="color:black" href="/message.html">J'ai trouvé un objet</a></li>
+	          <li><a href="/user.html">Modifer mon espace</a></li>
+	      </ul>
+	    </div>
+
+	    <div id="menumobile">
+	      <div id="sideNavigation" class="sidenav">
+	        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	        <a href="/index.html">Accueil</a>
+	        <a href="/message.html">J'ai trouvé un objet</a>
+	        <a class="active" href="/code.html">J'enregistre un code</a>
+	        <a href="/user.html">Modifer mon espace</a>
+	      </div>
+	       
+	      <nav class="topnav">
+	        <a href="#" onclick="openNav()"><strong>Menu</strong></a>
+	      </nav>
+	    </div>
+
+	    <div id="formCode" ng-controller="CodeCtrl">
+    	 	<div id="contenu">
+    	 	   <form >
+    	 		  <div style="margin-top:35px">
+    	 		  	<p>Vous avez reçu ou acheté un objet avec un code <a style="color: #ff6500"><strong>WebCodex</strong></a>?</p>
+		     		<p>Le code <a style="color: #ff6500"><strong>WebCodex</strong></a> est un numéro unique garantie de votre anonymat.</p>
+		     		<p>Pour etre contacté virtuellement en cas de perte de votre objet, veuillez compléter ce formulaire.</p>
+				  </div>
+				  	<table >
+				        <td>
+				            <img style="display:none;margin-left: 15%" id="imgCodePartnerLogo" alt="centered image" src="{{CodePartnerLogo}}">
+				        </td>
+				        <td>
+				            <any style="margin-left: 20%" id="labelCodePartnerLogo" ng-bind-html="CodePartnerLabel"></any>
+			  	        </td>
+					</table>
+					<div id="form-responsive" class="clearfix">
+						<div class="range-form">
+							<div class="semi-column">
+							 	<label for="value">* Code WebCodex de l'objet :</label>
+							</div>
+							<div class="semi-column">
+						 		<input id="codeValue" placeholder="exemple de code: 1001001" type="number" class="form-control" ng-model=code.Value ng-required="true" pattern="[0-9]{7}" ng-keyup="retrieveCodePartner()">
+								<span class="error" aria-live="polite"></span>
+							</div>
+						</div>
+						<div class="range-form">
+							<div class="semi-column">
+							 	<label for="comment">Commentaires éventuels :</label>
+				    		</div>
+							<div class="semi-column">
+							 	<textarea class="form-control" ng-init="code.Description=''" ng-model=code.Description></textarea>
+							</div>
+						</div>
+						<div class="range-form">
+							<div  class="semi-column">
+							 	<label for="email">* Votre email :</label>
+				    		</div>
+							<div class="semi-column">
+							 	<input placeholder="entrer ici votre adresse email" ng-init="user.Email=''" 		id="mail" type="email" class="mail" ng-model=user.Email ng-required="true">
+								<span class="error" aria-live="polite"></span>
+				    		</div>
+						</div>
+						<div class="range-form">
+							<div class="semi-column">
+							 	<label for="password">* Votre mot de passe :</label>
+							</div>
+							<div  class="semi-column">
+							 	<input placeholder="entrer ici votre mot de passe" id="password" type="password" class="password"  ng-model=user.Password ng-required="true" minLength="6" maxLength="8" oninvalid="this.setCustomValidity('Veuillez entrer un mot de passe')">
+				    		</div>
+						</div>
+						<div class="range-form">
+							<div class="columnf">
+						    	<a style="color: #ff6500;" href="/user_forgot_password.html"><label style="width: 100%">Mot de passe oublié?<label></a>
+							</div>
+						</div>
+						<div class="range-form">
+							<div class="columnf">
+						    	<button id="actionButton" type="submit" class="btn btn-primary" ng-click="addCode()">Enregistrer<br>(5 codes max/personne)</button>
+							</div>
+						</div>
+					</div><!--fin de formulaire-responsive-->
+			</form>
+			</div>
+			<script src="/controllers/controller.js"></script>	
+	    </div>
+	<p id="footer">La société Iner-DEV s'engage  par conséquent, conformément aux articles 34 et 35 de la loi du 6 janvier 1978 modifiée relative à l’informatique, aux fichiers et aux libertés ainsi qu’aux articles 32 à 35 du règlement général sur la protection des données du 27 avril 2016, à prendre toutes précautions conformes aux usages et à l’état de l’art dans le cadre de ses attributions afin de protéger la confidentialité des informations aux- quelles elle a  accès, et en particulier d’empêcher qu’elles ne soient communiquées à des personnes non expressément autorisées à recevoir ces informations.</p>
+    <p style="line-height: 15px" id="copyright-info">&copy; 2018-2019 WebCodex <a style="font-size: 1.1em;padding-left: 0px;line-height: 12px" ; href="/personal_data.html">CGU Notre charte de données</a></p> 
+    </div>
+  </div>
+  	
+</body>
+</html>

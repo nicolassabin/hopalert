@@ -1,0 +1,65 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html ng-app="MyApp" xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <title>WebCodex</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="Content-Language" content="fr" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/index.css">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+  </head>
+  
+  <body>
+  <div id="conteneur">    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script> 
+    <script src="/controllers/controller.js"></script>
+    <h1 id="header"><a href="index.html" title="Accueil"><span></span></a></h1>
+    
+    <div id="mainmenu">
+      <ul id="menu" >
+          <li class="active"><a class="active" href="/index.html">Accueil</a></li>
+          <li><a href="/code.html">J'enregistre un code</a></li>
+          <li><a style="color:black" href="/message.html">J'ai trouvé un objet</a></li>
+          <li><a href="/user.html">Modifer mon espace</a></li>
+      </ul>
+    </div>
+
+    <div id="menumobile">
+      <div id="sideNavigation" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a class="active" href="/index.html">Accueil</a>
+        <a href="/message.html">J'ai trouvé un objet</a>
+        <a href="/code.html">J'enregistre un code</a>
+        <a href="/user.html">Modifer mon espace</a>
+      </div>
+       
+      <nav class="topnav">
+        <a href="#" onclick="openNav()"><strong>Menu</strong></a>
+      </nav>
+    </div>
+
+    <div id="contenu">
+      <h4>WebCodex c'est quoi?</h4>
+      <p>La page <a style="color: #ff6500"><strong>WebCodex</strong></a> est un outil informatique en marque blanche permettant la mise en relation entre deux personnes, l'une ayant égarée un objet et l'autre ayant trouvé cet objet.
+      </p>
+      <p>WebCodex inclut et gère le traitement des données enregistrées en respectant scrupuleusement l'anonymat. <a style="color: #ff6500"><strong>WebCodex</strong></a> est un éditeur de codes uniques.
+      </p>
+      <p><strong>L'usage de cette page est sans engagement, sans publicité et sans spam.</strong></p>
+      <h2>Comment ça marche?</h2>
+      <p>Vous avez reçu ou acheté un objet estampillé d'un code unique <a style="color: #ff6500"><strong>WebCodex</strong></a>. Il vous suffit d'enregistrer ce code objet d'un clic sur <a style="color: #ff6500" href="/code.html">'j'enregistre mon code'</a> et d'y préciser vos coordonnées de contacts. Ces mentions seront totalement cryptées.</p>
+      <p>Vous égarez un de vos objets; la personne qui trouvera cet objet saura vous contacter en indiquant le numéro de votre code objet sur la page WebCodex par un clic sur <a style="color: #ff6500" href="/message.html">'j'ai trouvé un objet'</a>.</p>
+      <p>Vos coordonnées d'enregistrement ne seront jamais visibles. La personne ayant trouvé votre objet vous proposera un moyen d'entrer en relation directe afin d'être en mesure de vous restituer votre bien. Dans la relation, le code WebCodex de votre objet devient votre code ADN!</p>
+      <h2>Nous contacter</h2>
+      <p>Professionnels, vous souhaitez faire usage de la page <a style="color: #ff6500"><strong>WebCodex</strong></a> dans le cadre d'une operation marketing et/ou coder vos propres fabrications. Utilisateurs particuliers, vous souhaitez nous transmettre une information. <a href="/contact.html" style="color: #ff6500" >Contactez nous!</a>.
+      </p>
+    </div>
+    
+      <p id="footer">La société Iner-DEV s'engage par conséquent, conformément aux articles 34 et 35 de la loi du 6 janvier 1978 modifiée relative à l’informatique, aux fichiers et aux libertés ainsi qu’aux articles 32 à 35 du règlement général sur la protection des données du 27 avril 2016, à prendre toutes précautions conformes aux usages et à l’état de l’art dans le cadre de ses attributions afin de protéger la confidentialité des informations aux- quelles elle a  accès, et en particulier d’empêcher qu’elles ne soient communiquées à des personnes non expressément autorisées à recevoir ces informations. v1.1 beta</p>
+      <p style="line-height: 15px" id="copyright-info">&copy; 2018-2019 WebCodex <a style="font-size: 1.1em;padding-left: 0px;line-height: 12px" ; href="/personal_data.html">CGU Notre charte de données</a></p><div>
+      </div>
+  </div>
+  </body>
+</html>

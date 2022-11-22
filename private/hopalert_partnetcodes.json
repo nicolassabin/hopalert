@@ -1,0 +1,3 @@
+{"Startcode": {"$numberInt":"1000000"}, "Endcode": {"$numberInt":"1001000"}, "Name":"Garage Robert", "Logo":"8e3baf8b-5105-4055-9e2a-b8bd64677989.jpg", "Type": "1"}
+{"Startcode": {"$numberInt":"1001501"}, "Endcode": {"$numberInt":"1002000"}, "Name":"LCL", "Logo":"6002d337-03a5-4e5b-ad76-19f365fa1737.jpg", "Type": "1"}
+{"Startcode": {"$numberInt":"1002001"}, "Endcode": {"$numberInt":"1003000"}, "Name":"Société Clown", "Logo":"clown-3174398_640.jpg", "Type": "1"}

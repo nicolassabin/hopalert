@@ -1,0 +1,91 @@
+<!-- Learn about this code on MDN: https://developer.mozilla.org/fr/docs/Web/Guide/HTML/Formulaires/Mon_premier_formulaire_HTML -->
+
+<!DOCTYPE html>
+<html ng-app="MyApp">
+  <head>
+    <title>WebCodex</title>
+    <link rel="stylesheet" type="text/css" href="/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+  </head>
+  
+  <body>
+  	<div id="conteneur">  
+  	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+  	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>  
+  	  <div id="loading" style="display:none;">
+  	  	<img id="img-loading" src="loading.gif" alt="loading"/>
+  	  </div> 
+	  <div class="container">    
+	    <h1 id="header"><a href="contact.html" title="Contact"><span></span></a></h1>
+		<div id="mainmenu">
+	      <ul id="menu" >
+	          <li class="active"><a class="active" href="/index.html">Accueil</a></li>
+	          <li><a href="/code.html">J'enregistre un code</a></li>
+	          <li><a style="color:black" href="/message.html">J'ai trouvé un objet</a></li>
+	          <li><a href="/user.html">Modifer mon espace</a></li>
+	      </ul>
+	    </div>
+
+	    <div id="menumobile">
+	      <div id="sideNavigation" class="sidenav">
+	        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	        <a class="active" href="/index.html">Accueil</a>
+	        <a href="/message.html">J'ai trouvé un objet</a>
+	        <a href="/code.html">J'enregistre un code</a>
+	        <a href="/user.html">Modifer mon espace</a>
+	      </div>
+	       
+	      <nav class="topnav">
+	        <a href="#" onclick="openNav()"><strong>Menu</strong></a>
+	      </nav>
+	    </div>
+	    <div id="formContact" ng-controller="ContactCtrl">
+	      <form data-ng-submit="sendContactMessage()">
+			    <div style="margin-left:8%">
+				  	<p>Vous désirez des renseignements sur le service <a style="color: #ff6500"><strong>WebCodex</strong></a></p>
+					<p>Merci de complèter le formulaire ci-dessous.</p>
+		  		</div>
+		  		<div id="form-responsive" class="clearfix">
+					<div class="range-form">
+						<div class="semi-column">
+						 	<label for="value">Votre nom et prénom :</label>
+			     		</div>
+						<div class="semi-column">
+					 		<input data-ng-model="contact_name" ng-required="true">
+						</div>
+					</div>
+					<div class="range-form">
+						<div class="semi-column">
+						 	<label for="email">* Votre email :</label>
+			     		</div>
+						<div class="semi-column">
+					 		<input placeholder="entrer ici votre adresse email" id="mail" type="email" class="mail" data-ng-model="contact_email"  ng-required="true">
+							<span class="error" aria-live="polite"></span>
+						</div>
+					</div>
+					<div class="range-form">
+						<div class="semi-column">
+						 	<label for="text">Votre demande :</label>
+			    		</div>
+						<div class="semi-column">
+					 		<textarea class="form-control" data-ng-model="contact_msg"></textarea>
+						</div>
+					</div>
+					<div class="range-form">
+						<div class="columnf">
+					    	<button id="actionButton" class="btn btn-primary" type="submit">Envoyer</button>
+						</div>
+					</div>
+			  </div>
+			</form>
+	    
+    <p id="footer">La société Iner-DEV s'engage  par conséquent, conformément aux articles 34 et 35 de la loi du 6 janvier 1978 modifiée relative à l’informatique, aux fichiers et aux libertés ainsi qu’aux articles 32 à 35 du règlement général sur la protection des données du 27 avril 2016, à prendre toutes précautions conformes aux usages et à l’état de l’art dans le cadre de ses attributions afin de protéger la confidentialité des informations aux- quelles elle a  accès, et en particulier d’empêcher qu’elles ne soient communiquées à des personnes non expressément autorisées à recevoir ces informations.</p>
+    <p style="line-height: 15px" id="copyright-info">&copy; 2018-2019 WebCodex <a style="font-size: 1.1em;padding-left: 0px;line-height: 12px" ; href="/personal_data.html">CGU Notre charte de données</a></p> 
+   	</div>
+	</div>
+ </div>
+  	<script src="/controllers/controller.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+
+Installation:
+
+
+Installer node.js from nodejs.org
+
+Installer express
+	Npm install express
+Installer Mongodb
+	aller sur mongo.org et installer mongodb
+	attention 3.4 pour Mac mini ancien
+	sinon, prendre la dernière version
+Installer mongo js
+	npn install mongojs
+Installer Mongo compass
+	- créer la database et les collections
+	sudo mkdir -p /data/db
+Lancer mongoldb
+	modify bashrc pour y ajouter le path à mongodb/bin
+	ouvrir un session terminal et taper
+	sudo mongod 
+
+Si vulnérabilité, 
+	npm init (pour initialiser le package.json si non présent)
+	npm audit
+	npm i --package-lock-only
+	npm audit
+	npm install nodemon@1.18.7 --save
+ 
+Pour voir les db de Mongo
+	ouvrir un session terminal
+	bash mongo
+	show dbs
+
+Installer de divers composants
+- Recaptcha
+	npm i ng-recaptcha --save
+- Nodeemail
+	npm install nodemailer@4.6.8
+
+- SweetAlert
+	npm install sweetalert --save
+- Spinner
+	npm install ngx-spinner --save
+
+- crypto:
+	npm install bcrypt
+
+Configuration du mailer
+	sudo vim /etc/postfixx/main.cf
+
+	ajouter myhostname = smtp.gmail.com
+
+
+	ajouter le bock suivant:
+	mydomain_fallback = localhost
+	mail_owner = _postfix
+	setgid_group = _postdrop
+	relayhost = [smtp.gmail.com]:587
+	smtp_sasl_auth_enable = yes
+	smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
+	smtp_sasl_security_options = noanonymous
+	smtp_use_tls = yes
+	smtp_sasl_mechanism_filter = login
+
+	save
+	sudo vim /etc/postfix/sasl_passwd
+	ajouter la ligne suivante:
+	[smtp.gmail.com]:587 username@gmail.com:password
+
+	taper les commandes suivantes
+	sudo chmod 600 /etc/postfix/sasl_passwd
+	sudo postmap /etc/postfix/sasl_passwd
+	sudo launchctl stop org.postfix.master
+	sudo launchctl start org.postfix.master
+
+	tester le mailer:
+	tree /var/www/somefolder | mail -s "contents" your@yourdomain.com
+	If you receive the following error:
+
+	send-mail: fatal: chdir /Library/Server/Mail/Data/spool: No such file or directory
+	you can do the following:
+
+	sudo mkdir -p /Library/Server/Mail/Data/spool
+	sudo /usr/sbin/postfix set-permissions
+	sudo /usr/sbin/postfix start
+	
+	tester l'envoi de email de test
+	date | mail -s test nsb35@yahoo.fr
+
+
+	A chaque modif, relancer les commandes:
+	sudo postmap /etc/postfix/sasl_passwd
+	sudo launchctl stop org.postfix.master
+	sudo launchctl start org.postfix.master
+
+Relancer le server. Node:
+	node server
+
+Backup/restore de database
+mongodump -d hopalert -o /Users/nsabin/Documents/backup_hopalert-04122018.zip
+
+MongoDB Sécurité:
+Remote access
+https://www.mkyong.com/mongodb/mongodb-allow-remote-access/
+
+
+Passage en https:
+Sur Macos, depuis un terminal:
+https://github.com/Homebrew/brew/issues/4957
+Brew config
+https://stackoverflow.com/questions/40592463/homebrew-install-fails-while-copying-files
+Désinstall homebrew
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
+Install home-brew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+
+https://certbot.eff.org/lets-encrypt/osx-apache
+brew install certbot
+sudo certbot --apache
+
+Express and https
+npm install --save greenlock-express@2.x
+//npm install --save ursa
+npm install --save le-acme-core
+
+http://expressjs.com/fr/advanced/best-practice-security.html
+
+rm server.key server.crt
+openssl genrsa -out server.key 2048
+openssl req -nodes -newkey rsa:2048 -keyout server.key -out server.csr -subj "/C=FR/ST=Street/L=City/O=SAPA/OU=Authority/CN=testsitehttps"
+openssl x509 -req -days 1024 -in server.csr -signkey server.key -out server.crt
+
+
+
+
+
+Virtual host
+https://www.linuxtricks.fr/wiki/virtual-hosts-avec-apache-vhosts
+https://httpd.apache.org/docs/2.2/fr/vhosts/examples.html
+1) Faire un backup des fichiers httpd-vhost depuis /etc/apache2/extra et httpd.conf depuis etc/apache2/ 
+2) Editer les fichiers avec TextEdit et en faire un duplication pour les modifier
+3) Modifier les fichiers conformément à ceux en pièces jointes
+4) Lancer un terminal et aller etc/apache2
+5) Entrer la commande sudo cp httpd2.txt httpd.conf
+6) Aller sous etc/apache2/extra
+7) Lancer la comande sudo cp httpd-vhosts2.txt httpd-vhosts.conf
+
+
+Install https:
+https://certbot.eff.org/
+Etc
+
+

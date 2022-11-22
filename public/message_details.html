@@ -1,0 +1,67 @@
+<!-- Learn about this code on MDN: https://developer.mozilla.org/fr/docs/Web/Guide/HTML/Formulaires/Mon_premier_formulaire_HTML -->
+
+<!DOCTYPE html>
+<html ng-app="MyApp">
+  <head>
+    <title>WebCodex/title>
+    <link rel="stylesheet" type="text/css" href="/index.css">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+  </head>
+  
+  <body>
+  	<div id="conteneur">  
+  	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+  	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
+  	<script src="/controllers/controller.js"></script>
+  	  <div id="loading" style="display:none;">
+  	  	<img id="img-loading" src="loading.gif" alt="loading"/>
+  	  </div>   
+	  <div class="container">    
+	    <h1 id="header"><a href="message_details.html" title="Message"><span></span></a></h1>
+		<div id="mainmenu">
+	      <ul id="menu" >
+	          <li><a href="/index.html">Accueil</a></li>
+	          <li><a href="/code.html">J'enregistre un code</a></li>
+	          <li class="active"><a class="active" style="color:black" href="/message.html">J'ai trouvé un objet</a></li>
+	          <li><a href="/user.html">Modifer mon espace</a></li>
+	      </ul>
+	    </div>
+
+	    <div id="menumobile">
+	      <div id="sideNavigation" class="sidenav">
+	        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	        <a href="/index.html">Accueil</a>
+	        <a class="active" href="/message.html">J'ai trouvé un objet</a>
+	        <a href="/code.html">J'enregistre un code</a>
+	        <a href="/user.html">Modifer mon espace</a>
+	      </div>
+	       
+	      <nav class="topnav">
+	        <a href="#" onclick="openNav()"><strong>Menu</strong></a>
+	      </nav>
+	    </div>
+	    <div id="formMessage" ng-controller="MessageViewDetailsCtrl">
+	      <form>
+			    <div>
+				 	<label for="from">De la part de:</label>
+				 	<input for="fromvalue" ng-model=message.From readonly></input>
+				 </div>
+				 <div>
+				 	<label for="subject">Objet:</label>
+				 	<input for="subjectvalue" ng-model=message.Subject readonly></input>
+				</div>
+				 <div>
+				 	<label for="text">Texte:</label>
+				 	<textarea style="height:300px;width:400px" for="textvalue" ng-model=message.Text readonly></textarea>
+				 </div>
+			</form>
+	    
+    <p id="footer">La société Iner-DEV s'engage  par conséquent, conformément aux articles 34 et 35 de la loi du 6 janvier 1978 modifiée relative à l’informatique, aux fichiers et aux libertés ainsi qu’aux articles 32 à 35 du règlement général sur la protection des données du 27 avril 2016, à prendre toutes précautions conformes aux usages et à l’état de l’art dans le cadre de ses attributions afin de protéger la confidentialité des informations aux- quelles elle a  accès, et en particulier d’empêcher qu’elles ne soient communiquées à des personnes non expressément autorisées à recevoir ces informations.</p>
+    <p style="line-height: 15px" id="copyright-info">&copy; 2018-2019 WebCodex <a style="font-size: 1.1em;padding-left: 0px;line-height: 12px" ; href="/personal_data.html">CGU Notre charte de données</a></p>
+   	</div>
+	</div>
+ </div>
+  	
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+  <head>
+    <title>WebCodex</title>
+    <link rel="stylesheet" type="text/css" href="/index.css">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+  </head>
+  
+  <body>
+  <div id="conteneur">    
+    <div id="loading" style="display:none;">
+  	  	<img id="img-loading" src="loading.gif" alt="loading"/>
+  	</div>
+  	<div class="container" ng-controller="UserMessagesCodeCtrl">
+	<h1 id="header"><a href="user.html" title="User"><span></span></a></h1>
+	<div id="mainmenu">
+      <ul id="menu" >
+          <li><a href="/index.html">Accueil</a></li>
+          <li class="active"><a class="active" href="/code.html">J'enregistre un code</a></li>
+          <li><a style="color:black" href="/message.html">J'ai trouvé un objet</a></li>
+          <li><a href="/user.html">Modifer mon espace</a></li>
+      </ul>
+    </div>
+
+    <div id="menumobile">
+      <div id="sideNavigation" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/index.html">Accueil</a>
+        <a href="/message.html">J'ai trouvé un objet</a>
+        <a class="active" href="/code.html">J'enregistre un code</a>
+        <a href="/user.html">Modifer mon espace</a>
+      </div>
+       
+      <nav class="topnav">
+        <a href="#" onclick="openNav()"><strong>Menu</strong></a>
+      </nav>
+    </div>
+
+	<div class="container" ng-controller="CodeCtrl">
+		<h1>The Codes List</h1>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>UserId</th>
+					<th>Value</th>
+					<th>Type</th>
+					<th>Description</th>
+					<th>DateCreation</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input class="form-control" ng-model=code.UserId></td>
+					<td><input class="form-control" ng-model=code.Value></td>
+					<td><input class="form-control" ng-model=code.Type></td>
+					<td><input class="form-control" ng-model=code.Description></td>
+					<td><button class="btn btn-primary" ng-click="addCode()">Add User</button></td>
+					<td><button class="btn btn-info" ng-click="updateCode()">Update</button></td>
+				</tr>
+				<tr ng-repeat="code in code list">
+					<td>{{code.UserId}}</td>
+					<td>{{code.Value}}</td>
+					<td>{{code.Type}}</td>
+					<td>{{code.Description}}</td>
+					<td><button class="btn btn-danger" ng-click="removeCode(code._id)">Remove</button></td>
+					<td><button class="btn btn-warning" ng-click="editCode(code._id)">Edit</button>
+				</tr>
+			</tbody>
+		</table>
+		<p id="footer">La société Iner-DEV s'engage  par conséquent, conformément aux articles 34 et 35 de la loi du 6 janvier 1978 modifiée relative à l’informatique, aux fichiers et aux libertés ainsi qu’aux articles 32 à 35 du règlement général sur la protection des données du 27 avril 2016, à prendre toutes précautions conformes aux usages et à l’état de l’art dans le cadre de ses attributions afin de protéger la confidentialité des informations aux- quelles elle a  accès, et en particulier d’empêcher qu’elles ne soient communiquées à des personnes non expressément autorisées à recevoir ces informations.</p>
+      	<p style="line-height: 15px" id="copyright-info">&copy; 2018-2019 WebCodex <a style="font-size: 1.1em;padding-left: 0px;line-height: 12px" ; href="/personal_data.html">CGU Notre charte de données</a></p>
+	</div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+<script src="/controllers/codescontroller.js"></script>
+<script>
+</script>
+</body>
+</html>

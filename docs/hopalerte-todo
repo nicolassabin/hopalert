@@ -1,0 +1,54 @@
+A faire:
+- passer le site https
+- ajouter email copie sur partner et copie email sur remonter d'alerte
+- ajouter retrieveCodePartner pour la page 'j'ai trouvé un objet"
+- ajouter captcha pour demande de contact (en cas de spam)
+https://codeforgeek.com/2016/03/google-recaptcha-node-js-tutorial/
+- tester les API rest du site
+- supprimer private en prod
+- mettre en place un script de mise en prod sur la machine
+
+Ref:
+https://www.journaldunet.com/web-tech/developpeur/1153216-comment-ajouter-une-version-pour-mobile-a-un-site-web-existant/
+
+Tool:
+https://www.uuidgenerator.net/
+https://uigradients.com
+
+V4:
+- ajouter code email sur création de compte
+
+
+V3:
+- version mobile
+
+
+V2:
+- administration et sécurité de mongo (par défaut, mongo db se connecter uniquement sur localhost) donc pas de risque de hacking.
+https://buzut.fr/commandes-de-base-de-mongodb/#cruser
+
+
+Done v1 01/12/2018
+- ajouter crypto du mot de passe
+- ajout d'une page reinitialisation du mot de passe par token.
+- supprimer les headers autant pour register user et login. Prendre les infos du body
+- ajouter un bouton reinitialisation du mot de mot de passe depuis mon espace.
+- ajouter checkUserPermission sur put user
+- ajouter un footer dans les emails
+- cleanup password
+- revoir les permissions admin (peut-être pas utiles en https)
+
+Done v0 07.11/2018
+- voir si on ajoute une confirmation pour l'envoi d'alerte? (Pour éviter les spams)
+- limiter la création de code à 5 par user
+- ajouter new Date lors de la création d'un item en database
+- ajouter une date expiration pour le token
+- update the modification date pour tous les items en database
+
+
+Autres:
+https://www.noip.com/support/knowledgebase/multiple-servers-behind-a-nat-router/
+http://www.passportjs.org/packages/passport-custom/
+https://postmarkapp.com/guides/password-reset-email-best-practices
+https://www.infoq.com/fr/articles/mongodb-deployment-backup-security
+
